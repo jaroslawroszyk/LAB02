@@ -1,5 +1,4 @@
 #include "Palindrom.h"
-#include <iostream>
 #include <string>
 
 namespace TaskOne

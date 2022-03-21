@@ -5,7 +5,6 @@ namespace TaskOne
 {
     struct Palindrome
     {
-        auto containsPalindrome(const std::string& str) -> bool;
-
+        static auto containsPalindrome(const std::string& str) -> bool;
     };
 } //namespace Task1

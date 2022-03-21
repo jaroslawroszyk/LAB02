@@ -6,10 +6,9 @@ using namespace TaskOne;
 class PalindromeTests : public ::testing::Test
 {
 protected:
-    PalindromeTests() {
-    };
+    PalindromeTests() = default;;
 
-    ~PalindromeTests() override { };
+    ~PalindromeTests() override = default;;
 };
 Palindrome sut;
 
