@@ -4,7 +4,7 @@
 namespace TaskOne
 {
 
-    auto Palindrome::containsPalindrome(const std::string& str) -> bool
+    auto Palindrome::containsPalindrome(const std::string &str) -> bool
     {
         const int limit = str.length();
         if(limit < 2)
