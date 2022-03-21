@@ -1,48 +1,30 @@
 #include "Palindrom.h"
-#include <cstdlib>
-#include <ctime>
 #include <iostream>
-int fo;
-namespace Task3
+#include <string>
+
+namespace TaskOne
 {
 
-    auto Guess::guessNumber() -> void
+    auto Palindrome::containsPalindrome(const std::string& str) -> bool
     {
-        int num = 0;
-        long long int guess = 0;
-        int tries = 0;
-        srand(time(0));
-        num = rand() % 1000 + 1;
-
-        do
+        const int limit = str.length();
+        if(limit < 2)
         {
-            std::cout << "Enter a guess between 1 and 1000 : ";
-            std::cin >> guess;
-            tries++;
-
-            if (guess > num)
-                std::cout << "Too high!\n";
-            else if (guess < num)
-                std::cout << "Too low!\n";
-            else
-                std::cout << "Correct! " << tries << " guesses!\n";
+            return false;
         }
-        while (guess != num);
+        else if(limit == 2)
+        {
+            return (str[0] == str[1]);
+        }
+        else
+        {
+            for(int i = 1; i < limit - 1; i++)
+            {
+                if((str[i - 1] == str[i] || str[i + 1] == str[i]) || str[i - 1] == str[i + 1])
+                    return true;
+            }
+        }
+        return false;
     }
 
-    auto power(int k, int n) -> int
-    {
-        int result = 1;
-        int pow = k;
-        while (n > 0)
-        {
-            if (n % 2 == 1)
-                result *= pow;
-            pow *= pow;
-            n /= 2;
-        }
-        return result;
-    }
-
-
-} //namepsace Task3
+} //namespace TaskOne

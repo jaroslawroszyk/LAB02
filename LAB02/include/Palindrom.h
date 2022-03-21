@@ -1,9 +1,11 @@
 #pragma once
-namespace Task3
+#include <string>
+
+namespace TaskOne
 {
-    struct Guess
+    struct Palindrome
     {
-        auto guessNumber() -> void;
-        auto power(int k, int n) -> int;
+        auto containsPalindrome(const std::string& str) -> bool;
+
     };
-} //namespace Task3
+} //namespace Task1
