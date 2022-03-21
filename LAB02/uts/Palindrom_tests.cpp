@@ -6,7 +6,6 @@ using namespace Task3;
 class GuessNumberTests : public ::testing::Test
 {
 protected:
-
     GuessNumberTests() { };
 
     ~GuessNumberTests() override { };
