@@ -1,6 +1,5 @@
 #include <gtest/gtest.h>
 #include "Dec2Any.h"
-#include <string>
 #include <vector>
 
 using namespace TaskThree;
@@ -57,7 +56,31 @@ INSTANTIATE_TEST_SUITE_P(
                 std::make_tuple(13, 372, "0"),
                 std::make_tuple(-13, 2, "1101"),
                 std::make_tuple(123, 2, "1111011"),
-                std::make_tuple(2022, 2, "11111100110")
-        ));
+                std::make_tuple(2022, 2, "11111100110"),
+                std::make_tuple(100, 4, "1210"),
+                std::make_tuple(169, 4, "2221"),
+                std::make_tuple(21, 5, "41"),
+                std::make_tuple(691, 5, "10231"),
+                std::make_tuple(1231, 5, "14411"),
+                std::make_tuple(21, 7, "30"),
+                std::make_tuple(512, 7, "1331"),
+                std::make_tuple(312, 9, "376"),
+                std::make_tuple(3214312, 9, "6038177"),
+                std::make_tuple(21, 11, "1A"),
+                std::make_tuple(21241, 11, "14A60"),
+                std::make_tuple(164, 11, "13A"),
+                std::make_tuple(231, 13, "14A"),
+                std::make_tuple(23123, 13, "A6A9"),
+                std::make_tuple(112, 15, "77"),
+                std::make_tuple(11212, 15, "34C7"),
+                std::make_tuple(41, 17, "27"),
+                std::make_tuple(4112, 17, "E3F"),
+                std::make_tuple(41122, 17, "864G"),
+                std::make_tuple(232, 19, "C4"),
+                std::make_tuple(9232, 19, "16AH"),
+                std::make_tuple(412, 21, "JD"),
+                std::make_tuple(424, 21, "K4"),
+                std::make_tuple(412, 23, "HL"),
+                std::make_tuple(21345, 23, "1H81")));
 
 
