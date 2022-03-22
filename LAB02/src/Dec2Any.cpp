@@ -1,5 +1,4 @@
 #include "Dec2Any.h"
-#include <algorithm>
 
 namespace TaskThree
 {
