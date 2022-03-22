@@ -1,15 +1,30 @@
 #include "Dec2Any.h"
-#include <string>
 #include <algorithm>
 
 namespace TaskThree
 {
-    auto Dec2Any::convertNegativeNumberToPositive(long long int value) const -> long long int
+    auto Dec2Any::convertNegativeToPositive(long long int value) -> long long int
     {
-        bool isNegative = (value < 0);
-        if(isNegative)
-            return value *= -1;
+        if(value < 0)
+        {
+            value *= -1;
+        }
         return value;
+    }
+
+    template<typename T>
+    auto Dec2Any::swap(T &a, T &b) -> void
+    {
+        T temp = std::move(a);
+        a = std::move(b);
+        b = std::move(temp);
+    }
+
+    auto Dec2Any::reverseStr(std::string &str) -> void
+    {
+        int n = str.length();
+        for(int i = 0; i < n / 2; i++)
+            swap(str[i], str[n - i - 1]);
     }
 
     auto Dec2Any::dec2Any(long long value, int base) -> std::string
@@ -17,62 +32,27 @@ namespace TaskThree
         if(base < 2 || base > 36)
             return "0";
 
-//do funkcji to przenies!
-        bool isNegative = (value < 0);
-        if(isNegative)
-            value *= -1;
+        value = convertNegativeToPositive(value);
 
-        std::string output;
+        std::string output = "";
 
         do
         {
-            char digit = value % base;
+            auto digit = value % base;
 
             if(digit < 10)
                 digit += '0';
-                // A-Z
             else
                 digit = digit + 'A' - 10;
-
             output += digit;
-
             value /= base;
-
         } while (value > 0);
 
-        if(isNegative)
+        if(convertNegativeToPositive(value))
             output += '-';
 
-        std::reverse(output.begin(), output.end());
+        reverseStr(output);
+//        std::reverse(output.begin(), output.end());
         return output;
     }
-//    {
-//        if(base < 2 or base > 36)
-//            return "0";
-////        convertNegativeNumberToPositive(value);
-//        bool isNegative = (value < 0);
-//        if (isNegative)
-//            value *= -1;
-//
-//
-//        std::string output = "";
-//        do
-//        {
-//            char digit = value & base;
-//            if(digit < 10)
-//                digit += '0';
-//            else
-//                digit = digit + 'A' - 10;
-//
-//            output += digit;
-//            value /= base;
-//        } while (value > 0);
-//
-//        if(isNegative)
-//            output += '-';
-//
-//        std::reverse(output.begin(),output.end());
-//        return output;
-//    }
-
 } // namespace TaskThree
