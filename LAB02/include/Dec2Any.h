@@ -13,6 +13,5 @@ namespace TaskThree
         static auto convertNegativeToPositive(long long int value) -> long long int;
 
         auto dec2Any(long long value, int base) -> std::string;
-
     };
 } // namespace TaskThree

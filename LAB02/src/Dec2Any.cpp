@@ -34,7 +34,7 @@ namespace TaskThree
 
         value = convertNegativeToPositive(value);
 
-        std::string output = "";
+        std::string output {};
 
         do
         {
@@ -52,7 +52,6 @@ namespace TaskThree
             output += '-';
 
         reverseStr(output);
-//        std::reverse(output.begin(), output.end());
         return output;
     }
 } // namespace TaskThree

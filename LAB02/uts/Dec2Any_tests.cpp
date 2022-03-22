@@ -28,10 +28,12 @@ TEST_F(Dec2AnyTests, ConvertNegativeNumbersToPositive)
     EXPECT_EQ(su.convertNegativeToPositive(-1000), 1000);
 }
 
-TEST_F(Dec2AnyTests, foo)
+TEST_F(Dec2AnyTests, GivenStringShouldBeReverse)
 {
-    //do it with params test
-    EXPECT_EQ(su.dec2Any(120, 16), "78");
+    std::string input {"wsb"};
+    su.reverseStr(input);
+    std::string output {"bsw"};
+    EXPECT_EQ(input, output);
 }
 
 class Dec2AnyTestsParameterizedTestFixture : public ::testing::TestWithParam<std::tuple<int, int, std::string>>
