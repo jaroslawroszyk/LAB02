@@ -48,7 +48,7 @@ TEST_P(Dec2AnyTestsParameterizedTestFixture, OddYearsAreNotLeapYears)
 }
 
 INSTANTIATE_TEST_SUITE_P(
-        Dec2AnyTestsParameterizedTest,
+        Dec2AnyTestsParameterizedTests,
         Dec2AnyTestsParameterizedTestFixture,
         ::testing::Values(
                 std::make_tuple(23, 1, "0"),

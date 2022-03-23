@@ -28,7 +28,9 @@ namespace TaskThree
 
     auto Dec2Any::dec2Any(long long value, int base) -> std::string
     {
+        //moze zrob include do any2dec bo uzywaja tego ifa i converta - todo
         if(base < 2 || base > 36)
+            //CHANGE TO             throw std::out_of_range("Base cannot be less than 2 or more than thirtysix");
             return "0";
 
         value = convertNegativeToPositive(value);

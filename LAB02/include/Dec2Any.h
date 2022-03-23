@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-
+//dopisz zeby zmienialo litery na duze
 namespace TaskThree
 {
     struct Dec2Any
