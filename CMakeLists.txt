@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.20)
 project(LAB02 CXX)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -12,5 +12,5 @@ enable_testing()
 add_test(tests LAB02/tests)
 
 add_custom_target(tests1
-                  COMMAND "./LAB02/tests"
-                  DEPENDS tests)
+        COMMAND "./LAB02/tests"
+        DEPENDS tests)

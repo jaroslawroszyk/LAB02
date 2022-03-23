@@ -1,4 +1,5 @@
 #pragma once
+
 #include <string>
 #include <string_view>
 #include <iostream>
@@ -25,7 +26,7 @@ namespace Essentials
 //    }
 
     template<typename T>
-    T negativeToPositive(T& value)
+    T negativeToPositive(T &value)
     {
         if(value < 0)
         {

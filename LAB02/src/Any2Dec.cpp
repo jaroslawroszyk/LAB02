@@ -1,6 +1,12 @@
 #include "Any2Dec.h"
 #include "Essentials.h"
 #include <string_view>
+#include <cctype>
+#include <algorithm>
+#include <ranges>
+#include <string>
+#include <cstring>
+#include <sstream>
 
 namespace TaskFour
 {
@@ -12,24 +18,25 @@ namespace TaskFour
             return static_cast<int>(c - 'A' + 10);
     }
 
-    auto Any2Dec::any2Dec(const char* str, int base) -> int
+    auto Any2Dec::any2Dec(std::string str, int base) -> int
     {
+
         auto power = 1;
         int outputNumber = 0;
+        std::transform(str.cbegin(), str.cend(), str.begin(), [](char c) { return std::toupper(c); });
+//        for (auto & c: str) c = std::toupper(c); if i can't use transform this function do it
 
         if(base < 2 || base > 36)
         {
             throw std::out_of_range("Base cannot be less than 2 or more than thirtysix");
         }
 
-        for(int i = strlen(str) - 1; i >= 0; --i)
+        for(int i = str.size() - 1; i >= 0; --i)
         {
-            //1.1 odnosnik na dole
             outputNumber += replaceNumberToChar(str[i]) * power;
             power *= base;
         }
+
         return outputNumber;
     }
 } // namespace TaskFour
-//DO U NEED THIS SHIT?
-//1.1 //if(replaceNumberToChar(str[i]) >= base){return -1;}

@@ -47,6 +47,7 @@ INSTANTIATE_TEST_SUITE_P(
         Any2DecTestsParameterizedTestFixture,
         ::testing::Values(
                 std::make_tuple("16AH", 19, 9232),
+                std::make_tuple("16Ah", 19, 9232),
                 std::make_tuple("1101", 2, 13),
                 std::make_tuple("11111100110", 2, 2022),
                 std::make_tuple("1111011", 2, 123),
@@ -60,10 +61,13 @@ INSTANTIATE_TEST_SUITE_P(
                 std::make_tuple("376", 9, 312),
                 std::make_tuple("6038177", 9, 3214312),
                 std::make_tuple("1A", 11, 21),
+                std::make_tuple("1a", 11, 21),
                 std::make_tuple("14A60", 11, 21241),
                 std::make_tuple("13A", 11, 164),
+                std::make_tuple("13a", 11, 164),
                 std::make_tuple("14A", 13, 231),
                 std::make_tuple("A6A9", 13, 23123),
+                std::make_tuple("a6a9", 13, 23123),
                 std::make_tuple("77", 15, 112),
                 std::make_tuple("34C7", 15, 11212),
                 std::make_tuple("27", 17, 41),
@@ -74,7 +78,8 @@ INSTANTIATE_TEST_SUITE_P(
                 std::make_tuple("JD", 21, 412),
                 std::make_tuple("K4", 21, 424),
                 std::make_tuple("HL", 23, 412),
-                std::make_tuple("1H81", 23, 21345)
-//                std::make_tuple("23", 1, 0)
-        ));
+                std::make_tuple("hl", 23, 412),
+                std::make_tuple("1H81", 23, 21345),
+                std::make_tuple("5G", 20, 116),
+                std::make_tuple("5g", 20, 116)));
 

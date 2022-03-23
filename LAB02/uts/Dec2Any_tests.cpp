@@ -13,7 +13,7 @@ protected:
 
 static Dec2Any sut;
 
-TEST_F(Dec2AnyTests,ShouldThrowExceptionWhenBaseIsLessThanTwoOrMoreThan36)
+TEST_F(Dec2AnyTests, ShouldThrowExceptionWhenBaseIsLessThanTwoOrMoreThan36)
 {
 
     EXPECT_THROW({
