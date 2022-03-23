@@ -11,7 +11,7 @@ protected:
     ~PalindromeTests() override = default;
 };
 
-Palindrome sut;
+static Palindrome sut;
 
 TEST_F(PalindromeTests, GivenInputLenghtIsTwoOrOneShouldReturnFalse)
 {

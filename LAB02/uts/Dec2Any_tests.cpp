@@ -11,26 +11,39 @@ protected:
     ~Dec2AnyTests() override = default;
 };
 
-Dec2Any su;
+static Dec2Any sut;
 
-TEST_F(Dec2AnyTests, GivenBaseIsLessThanTwoAndMoreThan36ShouldReturnZero)
+TEST_F(Dec2AnyTests,ShouldThrowExceptionWhenBaseIsLessThanTwoOrMoreThan36)
 {
-    EXPECT_EQ(su.dec2Any(122, 1), "0");
-    EXPECT_EQ(su.dec2Any(122, 37), "0");
+
+    EXPECT_THROW({
+        try
+        {
+            EXPECT_EQ(sut.dec2Any(23, 1), "0");
+            EXPECT_EQ(sut.dec2Any(3123, 37), "0");
+            EXPECT_EQ(sut.dec2Any(3123, 434), "0");
+            EXPECT_EQ(sut.dec2Any(3123, 0), "0");
+        }
+        catch (const std::out_of_range &e)
+        {
+            EXPECT_STREQ("Base cannot be less than 2 or more than thirtysix", e.what());
+            throw;
+        }
+    }, std::exception);
 }
 
 TEST_F(Dec2AnyTests, ConvertNegativeNumbersToPositive)
 {
-    EXPECT_EQ(su.convertNegativeToPositive(-1), 1);
-    EXPECT_EQ(su.convertNegativeToPositive(-100), 100);
-    EXPECT_EQ(su.convertNegativeToPositive(10), 10);
-    EXPECT_EQ(su.convertNegativeToPositive(-1000), 1000);
+    EXPECT_EQ(sut.convertNegativeToPositive(-1), 1);
+    EXPECT_EQ(sut.convertNegativeToPositive(-100), 100);
+    EXPECT_EQ(sut.convertNegativeToPositive(10), 10);
+    EXPECT_EQ(sut.convertNegativeToPositive(-1000), 1000);
 }
 
 TEST_F(Dec2AnyTests, GivenStringShouldBeReverse)
 {
     std::string input {"wsb"};
-    su.reverseStr(input);
+    sut.reverseStr(input);
     std::string output {"bsw"};
     EXPECT_EQ(input, output);
 }
@@ -44,17 +57,13 @@ TEST_P(Dec2AnyTestsParameterizedTestFixture, OddYearsAreNotLeapYears)
     auto inputValue = std::get<0>(GetParam());
     auto inputBase = std::get<1>(GetParam());
     auto output = std::get<2>(GetParam());
-    EXPECT_EQ(output, su.dec2Any(inputValue, inputBase));
+    EXPECT_EQ(output, sut.dec2Any(inputValue, inputBase));
 }
 
 INSTANTIATE_TEST_SUITE_P(
         Dec2AnyTestsParameterizedTests,
         Dec2AnyTestsParameterizedTestFixture,
         ::testing::Values(
-                std::make_tuple(23, 1, "0"),
-                std::make_tuple(6923, 0, "0"),
-                std::make_tuple(673, 37, "0"),
-                std::make_tuple(13, 372, "0"),
                 std::make_tuple(-13, 2, "1101"),
                 std::make_tuple(123, 2, "1111011"),
                 std::make_tuple(2022, 2, "11111100110"),

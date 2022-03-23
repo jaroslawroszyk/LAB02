@@ -1,4 +1,5 @@
 #include "Dec2Any.h"
+#include "Essentials.h"
 
 namespace TaskThree
 {
@@ -26,17 +27,16 @@ namespace TaskThree
             swap(str[i], str[n - i - 1]);
     }
 
+    using namespace Essentials;
+
     auto Dec2Any::dec2Any(long long value, int base) -> std::string
     {
-        //moze zrob include do any2dec bo uzywaja tego ifa i converta - todo
-        if(base < 2 || base > 36)
-            //CHANGE TO             throw std::out_of_range("Base cannot be less than 2 or more than thirtysix");
-            return "0";
+        if(base < 2 or base > 36)
+            throw std::out_of_range("Base cannot be less than 2 or more than thirtysix");
 
-        value = convertNegativeToPositive(value);
+        value = Essentials::negativeToPositive(value);
 
         std::string output {};
-
         do
         {
             auto digit = value % base;
@@ -49,7 +49,7 @@ namespace TaskThree
             value /= base;
         } while (value > 0);
 
-        if(convertNegativeToPositive(value))
+        if(Essentials::negativeToPositive((value)))
             output += '-';
 
         reverseStr(output);
