@@ -2,7 +2,6 @@
 #include <cctype>
 #include <algorithm>
 
-
 namespace TaskFour
 {
     auto Any2Dec::replaceNumberToChar(char c) -> int
@@ -15,11 +14,10 @@ namespace TaskFour
 
     auto Any2Dec::any2Dec(std::string str, int base) -> int
     {
-
         auto power = 1;
         int outputNumber = 0;
         std::transform(str.cbegin(), str.cend(), str.begin(), [](char c) { return std::toupper(c); });
-//        for (auto & c: str) c = std::toupper(c); if i can't use transform this function do it
+//        for (auto & c: str) c = std::toupper(c); if we can't use transform, try this function do it
 
         if(base < 2 || base > 36)
         {

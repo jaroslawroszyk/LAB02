@@ -1,4 +1,4 @@
-add_library(implementations src/Palindrom.cpp src/Dec2Any.cpp src/Any2Dec.cpp)
+add_library(implementations src/Palindrom.cpp src/Dec2Any.cpp src/Any2Dec.cpp src/Boyera.cpp)
 target_include_directories(implementations PUBLIC include)
 
 add_executable(tests uts/Palindrom_tests.cpp uts/Dec2Any_tests.cpp uts/Any2Dec_tests.cpp)
