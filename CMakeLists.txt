@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.20)
 project(LAB02 CXX)
 
 set(CMAKE_CXX_STANDARD 20)
-add_compile_options(-Wall -Wextra -pedantic -Werror -Wno-unused-parameter -Wunused)
+add_compile_options(-Wall -Wextra -pedantic -Wno-unused-parameter -Wunused)
 
 include(cmake/GTest.cmake)
 
