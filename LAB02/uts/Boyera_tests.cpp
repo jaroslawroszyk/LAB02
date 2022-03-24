@@ -24,6 +24,9 @@ INSTANTIATE_TEST_SUITE_P(
         ::testing::Values(
                 std::make_tuple("ABAAABCD", "ABC", 4),
                 std::make_tuple("AACBEG", "BEG", 4),
-                std::make_tuple("Jarekmakota", "ako", 6)));
+                std::make_tuple("Jarekmakota", "ako", 6),
+                std::make_tuple("WSBALGORAWDKIANFW", "GOR", 5),
+                std::make_tuple("KUWAMAC", "WAM", 3)
+                ));
 
 

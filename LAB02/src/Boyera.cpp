@@ -3,7 +3,7 @@
 
 namespace TaskTwo
 {
-    auto boyermoore(std::string haystack, std::string needle) -> int
+    auto Boyer::boyermoore(std::string haystack, std::string needle) -> int
     {
         int N = haystack.length();
         int M = needle.length();
